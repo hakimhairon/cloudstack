@@ -20,11 +20,17 @@ $conn = new mysqli($servername, $username, $password);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT name,no FROM info WHERE name = 'hakimhairon'";
+$sql = "SELECT name, no FROM info WHERE name='hakimhairon'";
 $result = $conn->query($sql);
-  
-echo $result
 
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "Name: " . $row["name"]. " - No: " . $row["no"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
 $conn->close();
 ?>
 ?>
