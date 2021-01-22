@@ -14,20 +14,6 @@ $username = "admin";
 $password = "admin123"; 
 $dbname='hakimdb'; 
 
-
-try{ 
-    $dbh = new pdo(
-        'mysql:'.$servername.';dbname='.$dbname.';',
-        $username,
-        $password,
-        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-    );
-
-    die(json_encode(array('outcome' => true))); 
-} catch(PDOException $ex) { 
-    echo json_encode(array('outcome' => false, 'message' => $ex->getMessage()))."\n"; 
-} 
-
 // Create connection 
 $conn = mysqli_connect($servername, $username, $password); 
 
