@@ -8,15 +8,21 @@
 <h1>Hi Hakim</h1>
   
 <?php
-$con = mysqli_connect("hakimdb.cedtk3g7pkh0.us-east-1.rds.amazonaws.com", "admin", "admin123", "hakimdb", "3306");
-if($con){
-echo "Connection Success";
-}
-else
-{
-    echo "Error";
-}
+$dbhost = $_SERVER['hakimdb.cedtk3g7pkh0.us-east-1.rds.amazonaws.com'];
+$dbport = $_SERVER['3306'];
+$dbname = $_SERVER['hakimdb'];
+$charset = 'utf8' ;
 
+$dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}";
+$username = $_SERVER['admin'];
+$password = $_SERVER['admin123'];
+
+$pdo = new PDO($dsn, $username, $password);
+  
+if ($pdo->connect_error) {
+  die("Connection failed: " . $pdo->connect_error);
+}
+echo "Connected successfully";
 ?>
   
 </body>
