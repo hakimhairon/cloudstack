@@ -8,18 +8,15 @@
 <h1>Hi Hakim</h1>
   
 <?php
-$servername = "hakimdb.cedtk3g7pkh0.us-east-1.rds.amazonaws.com";
-$username = "admin";
-$password = "admin123";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password);
-
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+$con = mysqli_connect("hakimdb.cedtk3g7pkh0.us-east-1.rds.amazonaws.com", "admin", "admin123", "hakimdb", "3306");
+if($con){
+echo "Connection Success";
 }
-echo "Connected successfully";
+else
+{
+    echo "Error";
+}
+
 ?>
   
 </body>
