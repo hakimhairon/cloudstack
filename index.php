@@ -17,11 +17,11 @@ $dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}"
 $username = $_SERVER['admin'];
 $password = $_SERVER['admin123'];
 
-$conn = new mysqli($dsn, $username, $password);
+$pdo = new PDO($dsn, $username, $password);
 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if ($pdo->connect_error) {
+  die("Connection failed: " . $pdo->connect_error);
 }
 echo "Connected successfully";
   
