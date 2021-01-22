@@ -18,12 +18,6 @@ $username = $_SERVER['admin'];
 $password = $_SERVER['admin123'];
 
 $pdo = new PDO($dsn, $username, $password);
-
-// Check connection
-if ($pdo->connect_error) {
-  die("Connection failed: " . $pdo->connect_error);
-}
-echo "Connected successfully";
   
 ?>
   
