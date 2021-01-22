@@ -21,8 +21,13 @@ $conn = mysqli_connect($servername, $username, $password);
 if (!$conn) { 
     die("Connection failed: " . mysqli_connect_error()); 
 } 
-echo "Connected successfully\n";
+myFunction()
 ?>
-  
+ 
+<script>
+function myFunction() {
+  alert("I am an alert box!");
+}
+</script>
 </body>
 </html>
