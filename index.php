@@ -12,9 +12,10 @@
 $servername = "localhost";
 $username = "admin";
 $password = "admin";
+$database = "hakim";
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $database);
 
 // Check connection
 if ($conn->connect_error) {
