@@ -7,18 +7,35 @@
 
 <h1>Hi Hakim</h1>
   
-<?php
-$dbhost = $_SERVER['hakimdb.cedtk3g7pkh0.us-east-1.rds.amazonaws.com'];
-$dbport = $_SERVER['3306'];
-$dbname = $_SERVER['hakimdb'];
-$charset = 'utf8' ;
+<?php 
 
-$dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}";
-$username = $_SERVER['admin'];
-$password = $_SERVER['admin123'];
+$servername = "hakimdb.cedtk3g7pkh0.us-east-1.rds.amazonaws.com"; 
+$username = "admin"; 
+$password = "admin123"; 
+$dbname='hakimdb'; 
 
-$pdo = new PDO($dsn, $username, $password);
-  
+
+try{ 
+    $dbh = new pdo(
+        'mysql:'.$servername.';dbname='.$dbname.';',
+        $username,
+        $password,
+        array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+    );
+
+    die(json_encode(array('outcome' => true))); 
+} catch(PDOException $ex) { 
+    echo json_encode(array('outcome' => false, 'message' => $ex->getMessage()))."\n"; 
+} 
+
+// Create connection 
+$conn = mysqli_connect($servername, $username, $password); 
+
+// Check connection 
+if (!$conn) { 
+    die("Connection failed: " . mysqli_connect_error()); 
+} 
+echo "Connected successfully\n";
 ?>
   
 </body>
